@@ -4,9 +4,12 @@
     <widget-header></widget-header>
     <div class="content">
       <p class="info">{{info}}</p>
-      <router-link to="/detail/:id">
-        <p class="info-item">点击跳转到详情页</p>
-      </router-link>
+      <div class="scroll-wrapper">
+        这是一个很长的内容，导致滚动条产生
+        <router-link to="/detail/123">
+          <p class="info-item">点击跳转到详情页</p>
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -37,17 +40,28 @@ export default {
   .main {
     font-size: 40px;
     .info {
-      font-size: 30px;
+      font-size: 35px;
     }
     .content {
-      .info-item {
-        background: #3b3845;
-        color: #fff;
-        font-size: 28px;
-        line-height: 200px;
-        width: 320px;
-        height: 200px;
-        margin: 0 auto;
+      .scroll-wrapper {
+        height: 2300px;
+        background: #e2e2e2;
+        color: #666;
+        padding: 50px;
+        font-size: 30px;
+        margin: 50px auto;
+        position: relative;
+        .info-item {
+          background: #3b3845;
+          color: #fff;
+          font-size: 28px;
+          line-height: 200px;
+          width: 320px;
+          height: 200px;
+          margin: 50px auto;
+          position: absolute;
+          bottom: 700px;
+        }
       }
     }
   }

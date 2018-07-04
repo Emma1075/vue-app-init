@@ -3,27 +3,43 @@ import Router from 'vue-router';
 
 Vue.use(Router);
 
+const routes = [{
+  path: '/',
+  name: 'Index',
+  meta: {
+    title: '首页',
+  },
+  component: () => import('@/pages/index/index'),
+}, {
+  path: '/list',
+  name: 'List',
+  meta: {
+    title: '列表页',
+  },
+  component: () => import('@/pages/list/index'),
+}, {
+  path: '/detail/:id',
+  name: 'Detail',
+  meta: {
+    title: '详情页',
+  },
+  component: () => import('@/pages/detail/index'),
+}];
+
 export default new Router({
-  routes: [{
-    path: '/',
-    name: 'Index',
-    meta: {
-      title: '首页',
-    },
-    component: () => import('@/pages/index/index'),
-  }, {
-    path: '/list',
-    name: 'List',
-    meta: {
-      title: '列表页',
-    },
-    component: () => import('@/pages/list/index'),
-  }, {
-    path: '/detail/:id',
-    name: 'Detail',
-    meta: {
-      title: '详情页',
-    },
-    component: () => import('@/pages/detail/index'),
-  }],
+  routes,
+  mode: 'hash',
+  // base: '/ke/',
+  // linkActiveClass: 'active-link',
+  // linkExactActiveClass: 'exact-active-link',
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    }
+    if (from.meta.keepAlive) {
+      /* eslint-disable */
+      from.meta.savedPosition = document.body.scrollTop;
+    }
+    return { x: 0, y: to.meta.savedPosition || 0 };
+  },
 });
