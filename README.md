@@ -40,6 +40,13 @@ export default new Router({
 })
 ```
 
+
+### 开启productionGzip
+于减少生产环境打包时文件体积，压缩文件  
+需要先安装 `cnpm install --save-dev compression-webpack-plugin`
+
+在 `config/index.js` 中找到 `productionGzip`, 改 false 为 true
+
 ## 注意事项
 ### 组件书写顺序
 ```js
