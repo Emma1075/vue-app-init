@@ -5,6 +5,7 @@ import axiosConfig from '@/utils/axios-config';
 
 import Vue from 'vue';
 import 'lib-flexible';
+import FastClick from 'fastclick';
 import App from './App';
 import router from './router';
 import store from './store/index';
@@ -14,6 +15,7 @@ Vue.use(require('vue-wechat-title'));
 Vue.use(filterConfig);
 Vue.use(axiosConfig);
 
+FastClick.attach(document.body); // 使用fastclick, 解决移动端项目点击事件有300秒延迟问题
 // Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({

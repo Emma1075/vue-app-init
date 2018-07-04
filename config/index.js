@@ -10,7 +10,16 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      // 用‘/api’开头，代理所有请求到目标服务器
+      // '/api': {
+      //   target: 'http://jsonplaceholder.typicode.com', // 接口域名
+      //   changeOrigin: true, // 是否启用跨域
+      //   pathRewrite: {
+      //     '^/api': ''
+      //   }
+      // }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
@@ -56,7 +65,7 @@ module.exports = {
      * Source Maps
      */
 
-    productionSourceMap: true,
+    productionSourceMap: false,   // 不生成 .map 文件
     // https://webpack.js.org/configuration/devtool/#production
     devtool: '#source-map',
 
@@ -64,7 +73,7 @@ module.exports = {
     // Surge or Netlify already gzip all static assets for you.
     // Before setting to `true`, make sure to:
     // npm install --save-dev compression-webpack-plugin
-    productionGzip: false,
+    productionGzip: true, // 开启， 用于减少文件体积，压缩文件  需要先安装 npm install --save-dev compression-webpack-plugin
     productionGzipExtensions: ['js', 'css'],
 
     // Run the build command with an extra argument to

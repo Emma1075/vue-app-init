@@ -1,7 +1,75 @@
 # vue-app-init
 > dependent on vue-cli, add personal config
   
-### Build Setup
+## 配置
+### fastclick
+使用fastclick, 解决移动端项目点击事件有300秒延迟问题
+```js
+// 命令行安装   cnpm i fastclick -S
+// main.js文件中增加
+import FastClick from 'fastclick'
+FastClick.attach(document.body)
+```
+### px2rem-loader
+参考教程：[vue-cli 使用 px2rem](https://shimo.im/docs/38m7jKtwrgQ7w2m1/)
+
+### 路由懒加载写法
+路由懒加载可以让进入首屏时不用加载过多资源，从而减少首屏加载时间
+
+```js
+// 非懒加载写法
+import Index from '@/pages/index/index';
+export default new Router({
+  routes: [{
+    path: '/',
+    name: 'Index',
+    meta: {
+      title: '首页',
+    },
+    component: Index,
+  }],
+})
+
+// 懒加载写法
+export default new Router({
+  routes: [{
+    path: '/',
+    name: 'Index',
+    component: () => import('@/pages/index/index'),
+  }]
+})
+```
+
+## 注意事项
+### 组件书写顺序
+```js
+export default {
+  name: '',
+
+  mixins: [],
+
+  components: {},
+
+  props: {},
+
+  data() {},
+
+  computed: {},
+
+  watch: {},
+  
+  methods: {},
+
+  created() {},
+
+  mounted() {},
+
+  destroyed() {}
+};
+
+```
+
+## Build Setup
 
 ``` bash
 # install dependencies

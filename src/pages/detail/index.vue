@@ -4,8 +4,8 @@
     <widget-header></widget-header>
     <div class="content">
       <p class="info">{{info}}</p>
-      <router-link to="/list">
-        <p class="info-item">点击跳转到列表页</p>
+      <router-link to="/">
+        <p class="info-item">点击跳转回首页</p>
       </router-link>
     </div>
   </div>
@@ -15,14 +15,14 @@ import WidgetHeader from '@/components/common/WidgetHeader';
 import { mapActions } from 'vuex';
 
 export default {
-  name: 'index',
+  name: 'detail',
   components: {
     WidgetHeader,
   },
   data() {
     return {
-      title: '首页',
-      info: '这是首页介绍一',
+      title: '详情页',
+      info: '这是详情页介绍一',
     };
   },
   methods: {
