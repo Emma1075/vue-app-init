@@ -1,13 +1,11 @@
 <template>
   <div class="main">
+    <hr>
     {{title}}
-    <widget-header></widget-header>
     <div class="content">
       <p class="info">{{info}}</p>
-      <router-link to="/">
-        <p class="info-item">点击跳转回首页</p>
-      </router-link>
     </div>
+    <hr>
   </div>
 </template>
 <script>
@@ -15,15 +13,14 @@ import WidgetHeader from '@/components/common/WidgetHeader';
 import { mapActions } from 'vuex';
 
 export default {
-  name: 'detail',
+  name: 'test',
   components: {
     WidgetHeader,
   },
-  props: ['id'],
   data() {
     return {
-      title: '详情页',
-      info: '这是详情页介绍一',
+      title: 'test',
+      info: 'test lalala',
     };
   },
   methods: {
@@ -31,7 +28,6 @@ export default {
   },
   mounted() {
     this.setCustomer('beike');
-    console.log(this.id);
   },
 };
 </script>

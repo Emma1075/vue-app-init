@@ -9,6 +9,7 @@ import FastClick from 'fastclick';
 import App from './App';
 import router from './router';
 import store from './store/index';
+import './assets/styles/global.less';
 
 Vue.use(require('vue-wechat-title'));
 

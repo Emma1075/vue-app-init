@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     {{title}}
-    <widget-header></widget-header>
+    <router-view/>
     <div class="content">
       <p class="info">{{info}}</p>
       <div class="scroll-wrapper">
@@ -44,7 +44,7 @@ export default {
     }
     .content {
       .scroll-wrapper {
-        height: 2300px;
+        height: 1300px;
         background: #e2e2e2;
         color: #666;
         padding: 50px;
