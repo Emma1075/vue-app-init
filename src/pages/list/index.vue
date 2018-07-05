@@ -28,6 +28,8 @@ export default {
       info: '这是列表页介绍一',
     };
   },
+  computed: {
+  },
   methods: {
     ...mapActions(['setCustomer']),
   },
