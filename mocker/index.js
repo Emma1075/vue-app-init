@@ -1,4 +1,5 @@
-/*const proxy = {
+/*
+const proxy = {
   'GET /api/user': {id: 1, username: 'kenny', sex: 6},
   'GET /api/user/list': [
     {id: 1, username: 'kenny', sex: 6},
@@ -25,19 +26,23 @@
     res.send({status: 'ok', message: '删除成功！'});
   }
 }
-module.exports = proxy;*/
+module.exports = proxy;
+*/
 
-/*const mock = {};
+/*
+const mock = {};
 
 require('fs').readdirSync(require('path').join(__dirname + '/mocker')).forEach(function (file) {
   Object.assign(mock, require('./mocker/' + file))
 });
-module.exports = mock;*/
+module.exports = mock;
+*/
 
-//根据不同的文件夹读取mock数据
+// 根据不同的文件夹读取mock数据
 const mock = {};
 
+/* eslint-disable */
 require('fs').readdirSync(require('path').resolve('mocker')).forEach(function (file) {
-  Object.assign(mock, require('./' + file))
+  Object.assign(mock, require('./' + file));
 });
 module.exports = mock;
