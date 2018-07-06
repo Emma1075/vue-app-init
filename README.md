@@ -40,6 +40,15 @@ export default new Router({
 })
 ```
 
+注意：懒加载写法中，直接 import 可能不被支持，需要先安装 babel-plugin-syntax-dynamic-import
+```
+cnpm i babel-plugin-syntax-dynamic-import -D
+```
+
+然后在 .babelrc 中增加 plugin
+```
+ "plugins": ["transform-vue-jsx", "istanbul", "syntax-dynamic-import"]
+```
 
 ### 开启productionGzip
 于减少生产环境打包时文件体积，压缩文件  

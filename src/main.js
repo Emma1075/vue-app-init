@@ -4,6 +4,7 @@ import filterConfig from '@/utils/filter-config';
 import axiosConfig from '@/utils/axios-config';
 
 import Vue from 'vue';
+import Vuex from 'vuex';
 import 'lib-flexible';
 import FastClick from 'fastclick';
 import App from './App';
@@ -11,6 +12,7 @@ import router from './router';
 import store from './store/index';
 import './assets/styles/global.less';
 
+Vue.use(Vuex);
 Vue.use(require('vue-wechat-title'));
 
 Vue.use(filterConfig);
