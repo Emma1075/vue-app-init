@@ -34,21 +34,21 @@ export default {
   methods: {
     ...mapActions(['setCustomer']),
   },
-    mounted() {
+  mounted() {
     this.setCustomer('beike');
 
     axios.post('/api/login/account', {
       password: '888888',
-      username: 'admin'
-  })
-  .then(function (response) {
-    console.log(response);
-    console.log(`mocker---${response.data.data.username}`)
-  })
-  .catch(function (error) {
-    console.log(error);
-  })
-  }
+      username: 'admin',
+    })
+      .then((response) => {
+        console.log(response);
+        console.log(`mocker---${response.data.data.username}`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  },
 };
 </script>
 <style lang="less" scoped>
