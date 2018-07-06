@@ -1,6 +1,6 @@
 # vue-app-init
 > dependent on vue-cli, add personal config
-  
+
 ## 配置
 ### fastclick
 使用fastclick, 解决移动端项目点击事件有300秒延迟问题
@@ -51,7 +51,7 @@ cnpm i babel-plugin-syntax-dynamic-import -D
 ```
 
 ### 开启productionGzip
-于减少生产环境打包时文件体积，压缩文件  
+于减少生产环境打包时文件体积，压缩文件
 需要先安装 `cnpm install --save-dev compression-webpack-plugin`
 
 在 `config/index.js` 中找到 `productionGzip`, 改 false 为 true
@@ -73,7 +73,7 @@ export default {
   computed: {},
 
   watch: {},
-  
+
   methods: {},
 
   created() {},
