@@ -33,6 +33,10 @@ const routes = [{
     title: '详情页',
   },
   component: () => import('@/pages/detail/index'),
+  beforeEnter(to, from, next) {
+    console.log('detail route before enter');
+    next();
+  },
 }];
 
 export default new Router({
