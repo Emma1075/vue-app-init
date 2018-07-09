@@ -1,6 +1,6 @@
 # vue-app-init
 > dependent on vue-cli, add personal config
-  
+
 ## 配置
 ### fastclick
 使用fastclick, 解决移动端项目点击事件有300秒延迟问题
@@ -10,6 +10,13 @@
 import FastClick from 'fastclick'
 FastClick.attach(document.body)
 ```
+注意：
+并非所有地方都需要用到 fastclick加速，两种方式解决：
+- `FastClick.attach(document.body)`可以改为`FastClick.attach(document.getElementById('itemId'))`,这样避免不需要加速的地方受fastclick影响
+- 在不需要加速的class上加入样式名 `needsclick`
+
+参考文章：[折腾过后的fastclick](https://blog.csdn.net/jiunizhuai/article/details/80887668)；[fastclick源码分析](https://www.cnblogs.com/vajoy/p/5522114.html)
+
 ### px2rem-loader
 参考教程：[vue-cli 使用 px2rem](https://shimo.im/docs/38m7jKtwrgQ7w2m1/)
 
@@ -51,10 +58,60 @@ cnpm i babel-plugin-syntax-dynamic-import -D
 ```
 
 ### 开启productionGzip
-于减少生产环境打包时文件体积，压缩文件  
+于减少生产环境打包时文件体积，压缩文件
 需要先安装 `cnpm install --save-dev compression-webpack-plugin`
 
 在 `config/index.js` 中找到 `productionGzip`, 改 false 为 true
+
+
+### 引入 vue-cookie
+- 安装 `cnpm i --save vue-cookie` 
+- 引入
+    - 在 main.js 入口文件中引入  `Vue.use(require('vue-cookie'))`
+- 使用方法：
+    1. 增加   `this.$cookie.set('cookieName', 'cookieValue')`
+    2. 删除    `this.$cookie.delete('cookieName')`
+
+
+### 封装 axios 请求
+```js
+import axios from 'axios';
+import qs from 'qs';
+
+// 设置请求拦截器
+function install() {
+  // 如果有前缀
+  // axios.defaults.baseURL = '/api';
+  axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+  axios.interceptors.request.use(config => config, error => Promise.reject(error));
+  // 封装, post 请求使用 qs 将 data 转化格式
+  axios.interceptors.request.use((config) => {
+    if (config.method === 'post') {
+      config.data = qs.stringify(config.data);
+    }
+    return config;
+  }, error => Promise.reject(error));
+  axios.interceptors.response.use(config => config, error => Promise.reject(error));
+}
+export default install;
+```
+
+如果要默认携带token参数
+```js
+axios.interceptors.request.use((config) => {
+    const token = this.$cookie.get('tokenName').trim();
+    if (config.method === 'post') {
+      /* eslint-disable */
+      config.data = qs.stringify(config.data) + `&token=${token}`;
+    } else if (config.method === 'get') {
+      config.params = {
+        token: token,
+        ...config.params
+      }
+    }
+    return config;
+  }, error => Promise.reject(error));
+```
 
 ## 注意事项
 ### 组件书写顺序
@@ -73,7 +130,7 @@ export default {
   computed: {},
 
   watch: {},
-  
+
   methods: {},
 
   created() {},
