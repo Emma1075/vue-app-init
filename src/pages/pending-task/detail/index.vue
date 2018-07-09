@@ -1,14 +1,10 @@
 <template>
   <div class="main">
     {{title}}
-    <!--<widget-header></widget-header>-->
     <div class="content">
       <p class="info">{{info}}</p>
       <router-link to="/pending-task/list">
-        <p class="info-item">待完成列表</p>
-      </router-link>
-      <router-link to="/done-task/list">
-        <p class="info-item">已完成列表</p>
+        <p class="info-item">点击回到列表页</p>
       </router-link>
     </div>
   </div>
@@ -18,14 +14,14 @@ import WidgetHeader from '@/components/header/Header';
 import { mapActions } from 'vuex';
 
 export default {
-  name: 'index',
+  name: 'test',
   components: {
     WidgetHeader,
   },
   data() {
     return {
-      title: '首页',
-      info: '这是首页介绍一',
+      title: '待完成',
+      info: '待完成任务详情',
     };
   },
   methods: {
@@ -44,7 +40,6 @@ export default {
     }
     .content {
       .info-item {
-        display: inline-block;
         background: #3b3845;
         color: #fff;
         font-size: 28px;

@@ -1,29 +1,27 @@
 <template>
   <div class="main">
     {{title}}
-    <widget-header></widget-header>
     <div class="content">
       <p class="info">{{info}}</p>
-      <router-link to="/">
-        <p class="info-item">点击跳转回首页</p>
+      <router-link to="/done-task/list">
+        <p class="info-item">点击回到列表页</p>
       </router-link>
     </div>
   </div>
 </template>
 <script>
-import WidgetHeader from '@/components/common/WidgetHeader';
+import WidgetHeader from '@/components/header/Header';
 import { mapActions } from 'vuex';
 
 export default {
-  name: 'detail',
+  name: 'test',
   components: {
     WidgetHeader,
   },
-  props: ['id'],
   data() {
     return {
-      title: '详情页',
-      info: '这是详情页介绍一',
+      title: '已完成',
+      info: '已完成任务详情',
     };
   },
   methods: {
@@ -31,7 +29,6 @@ export default {
   },
   mounted() {
     this.setCustomer('beike');
-    console.log(this.id);
   },
 };
 </script>

@@ -13,6 +13,7 @@ import store from './store/index';
 import './assets/styles/global.less';
 
 Vue.use(Vuex);
+/* eslint-disable */
 Vue.use(require('vue-wechat-title'));
 Vue.use(require('vue-cookie'));
 
