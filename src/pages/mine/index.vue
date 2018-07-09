@@ -4,6 +4,7 @@
     <!--<widget-header></widget-header>-->
     <div class="content">
       <p class="info">{{info}}</p>
+      <mt-button size="large" type="primary">primary</mt-button>
     </div>
   </div>
 </template>

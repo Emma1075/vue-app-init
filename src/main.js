@@ -7,10 +7,17 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import 'lib-flexible';
 import FastClick from 'fastclick';
+// import MintUI from 'mint-ui';
+import { Button } from 'mint-ui';
+import 'mint-ui/lib/style.css';
 import App from './App';
 import router from './router';
 import store from './store/index';
 import './assets/styles/global.less';
+
+// Vue.use(MintUI);
+// 按需引用MintUI组件
+Vue.component(Button.name, Button);
 
 Vue.use(Vuex);
 /* eslint-disable */
