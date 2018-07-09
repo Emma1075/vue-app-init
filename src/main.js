@@ -14,6 +14,7 @@ import './assets/styles/global.less';
 
 Vue.use(Vuex);
 Vue.use(require('vue-wechat-title'));
+Vue.use(require('vue-cookie'));
 
 Vue.use(filterConfig);
 Vue.use(axiosConfig);
