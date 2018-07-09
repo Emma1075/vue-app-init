@@ -22,7 +22,8 @@ export default {
   data() {
     return {
       title: '首页',
-      info: '这是首页介绍一',
+      // info: '这是首页介绍一',
+      info: this.chance.sentence(),
     };
   },
   methods: {
@@ -30,6 +31,7 @@ export default {
   },
   mounted() {
     this.setCustomer('beike');
+    console.log(this.chance.sentence());
   },
 };
 </script>

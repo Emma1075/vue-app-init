@@ -113,6 +113,13 @@ axios.interceptors.request.use((config) => {
   }, error => Promise.reject(error));
 ```
 
+### 引入chancejs 生成mock数据
+[chancejs文档地址](https://chancejs.com/location/phone.html)
+```js
+chance.phone(); // => '(494) 927-2152'
+chance.sentence({ words: 5 });  // => 'Waddik jeasmov cakgilta ficub up.'
+```
+
 ## 注意事项
 ### 组件书写顺序
 ```js
